@@ -38,6 +38,12 @@ about:
   license: BSD 3-clause
   summary: The Jupyter Notebook format
   license_file: COPYING.md
+  summary: The reference implementation of the Jupyter Notebook format
+  description: |
+    nbformat contains the reference implementation of the Jupyter Notebook
+    format, and Python APIs for working with notebooks.
+  doc_url: http://nbformat.readthedocs.org
+  dev_url: https://github.com/jupyter/nbformat
 
 extra:
   recipe-maintainers:
