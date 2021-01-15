@@ -5,15 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  # TODO: Using github source for build 1 because the PyPI source was missing
-  # schema.json files. Should be fixed in v5.1.2 (revert to PyPI source then).
-  # url: https://pypi.io/packages/source/n/nbformat/nbformat-{{ version }}.tar.gz
-  # sha256: ce34144c29b27db6b22d2f5205babf8b4dead1f0be1766caf49ab4b994c50570
-  url: https://github.com/jupyter/nbformat/archive/{{ version }}.tar.gz
-  sha256: ce34144c29b27db6b22d2f5205babf8b4dead1f0be1766caf49ab4b994c50570
+  url: https://pypi.io/packages/source/n/nbformat/nbformat-{{ version }}.tar.gz
+  sha256: 1d223e64a18bfa7cdf2db2e9ba8a818312fc2a0701d2e910b58df66809385a56
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
@@ -44,12 +40,6 @@ about:
   license: BSD-3-Clause
   summary: The Jupyter Notebook format
   license_file: COPYING.md
-  summary: The reference implementation of the Jupyter Notebook format
-  description: |
-    nbformat contains the reference implementation of the Jupyter Notebook
-    format, and Python APIs for working with notebooks.
-  doc_url: http://nbformat.readthedocs.org
-  dev_url: https://github.com/jupyter/nbformat
 
 extra:
   recipe-maintainers:
