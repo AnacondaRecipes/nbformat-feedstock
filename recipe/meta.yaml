@@ -5,11 +5,15 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/n/nbformat/nbformat-{{ version }}.tar.gz
-  sha256: ce5d4d7989d85d4c59631d84fed475f899ac637bd33f100737d796af20b47ddd
+  # TODO: Using github source for build 1 because the PyPI source was missing
+  # schema.json files. Should be fixed in v5.1.2 (revert to PyPI source then).
+  # url: https://pypi.io/packages/source/n/nbformat/nbformat-{{ version }}.tar.gz
+  # sha256: ce5d4d7989d85d4c59631d84fed475f899ac637bd33f100737d796af20b47ddd
+  url: https://github.com/jupyter/nbformat/archive/{{ version }}.tar.gz
+  sha256: f8da48c751f7547ba5b69d824b8cfc5b63e5f1245040050faf56b04974f8ddbd
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
