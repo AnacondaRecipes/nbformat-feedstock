@@ -1,4 +1,4 @@
-{% set version = "5.1.1" %}
+{% set version = "5.1.2" %}
 
 package:
   name: nbformat
@@ -8,9 +8,9 @@ source:
   # TODO: Using github source for build 1 because the PyPI source was missing
   # schema.json files. Should be fixed in v5.1.2 (revert to PyPI source then).
   # url: https://pypi.io/packages/source/n/nbformat/nbformat-{{ version }}.tar.gz
-  # sha256: ce5d4d7989d85d4c59631d84fed475f899ac637bd33f100737d796af20b47ddd
+  # sha256: ce34144c29b27db6b22d2f5205babf8b4dead1f0be1766caf49ab4b994c50570
   url: https://github.com/jupyter/nbformat/archive/{{ version }}.tar.gz
-  sha256: f8da48c751f7547ba5b69d824b8cfc5b63e5f1245040050faf56b04974f8ddbd
+  sha256: ce34144c29b27db6b22d2f5205babf8b4dead1f0be1766caf49ab4b994c50570
 
 build:
   number: 1
