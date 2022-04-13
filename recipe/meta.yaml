@@ -10,36 +10,48 @@ source:
 
 build:
   number: 0
-  noarch: python
+  skip: True  # [py<37]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   entry_points:
     - jupyter-trust = nbformat.sign:TrustNotebookApp.launch_instance
 
 requirements:
   host:
-    - python >=3.5
+    - python
     - pip
+    - setuptools
+    - wheel
   run:
-    - python >=3.5
-    - ipython_genutils
-    - traitlets >=4.1
+    - python
     - jsonschema >=2.4,!=2.5.0
     - jupyter_core
+    - python-fastjsonschema
+    - traitlets >=4.1
 
 test:
+  source_files:
+    - tests
   commands:
     - pip check
-    - jupyter-trust -h
+    - jupyter trust --version
+    - jupyter-trust --help
+    - pytest -vv --cov nbformat --cov-report term-missing:skip-covered --no-cov-on-fail --cov-fail-under 79
   requires:
     - pip
+    - pytest
+    - pytest-cov
+    - testpath
   imports:
     - nbformat
 
 about:
-  home: http://jupyter.org
+  home: https://jupyter.org
   license: BSD-3-Clause
+  license_family: BSD
   summary: The Jupyter Notebook format
   license_file: COPYING.md
+  doc_url: https://nbformat.readthedocs.io
+  dev_url: https://github.com/jupyter/nbformat 
 
 extra:
   recipe-maintainers:
