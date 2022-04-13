@@ -44,12 +44,6 @@ test:
     - testpath
   imports:
     - nbformat
-  downstreams:
-    - anaconda-client
-    # CI fails on win64 and python 3.10
-    - conda-repo-cli  # [not win64 and py==310]
-    - ipywidgets
-    - nootebook
 
 about:
   home: https://jupyter.org
