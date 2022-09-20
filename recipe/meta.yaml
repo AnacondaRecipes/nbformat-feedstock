@@ -1,12 +1,13 @@
-{% set version = "5.3.0" %}
+{% set name = "nbformat" %}
+{% set version = "5.5.0" %}
 
 package:
-  name: nbformat
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/n/nbformat/nbformat-{{ version }}.tar.gz
-  sha256: fcc5ab8cb74e20b19570b5be809e2dba9b82836fd2761a89066ad43394ba29f5
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nbformat-{{ version }}.tar.gz
+  sha256: 9ebe30e6c3b3e5b47d39ff0a3897a1acf523d2bfafcb4e2d04cdb70f8a66c507
 
 build:
   number: 0
@@ -18,32 +19,31 @@ build:
 requirements:
   host:
     - python
+    - flit-core >=3.2,<4
     - pip
-    - setuptools >=60.0
     - wheel
   run:
     - python
-
     - jsonschema >=2.6
     - jupyter_core
     - python-fastjsonschema
-    - traitlets >=4.1
+    - traitlets >=5.1
 
 test:
   source_files:
     - tests
-  commands:
-    - pip check
-    - jupyter trust --version
-    - jupyter-trust --help
-    - pytest -vv --cov nbformat --cov-report term-missing:skip-covered --no-cov-on-fail --cov-fail-under 79
+  imports:
+    - nbformat
   requires:
     - pip
     - pytest
     - pytest-cov
     - testpath
-  imports:
-    - nbformat
+  commands:
+    - pip check
+    - jupyter trust --version
+    - jupyter-trust --help
+    - pytest -vv --cov nbformat --cov-report term-missing:skip-covered --no-cov-on-fail --cov-fail-under 79
 
 about:
   home: https://jupyter.org
