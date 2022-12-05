@@ -20,11 +20,12 @@ build:
 requirements:
   host:
     - python
-    - flit-core >=3.2,<4
     - pip
-    - wheel
+    - hatchling
+    - hatch-nodejs-version
   run:
     - python
+    - importlib_metadata >=3.6
     - jsonschema >=2.6
     - jupyter_core
     - python-fastjsonschema
