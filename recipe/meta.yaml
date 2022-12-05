@@ -53,8 +53,11 @@ about:
   home: https://jupyter.org
   license: BSD-3-Clause
   license_family: BSD
-  summary: The Jupyter Notebook format
   license_file: COPYING.md
+  summary: The Jupyter Notebook format
+  description: | 
+    This package contains the base implementation of the Jupyter Notebook format,
+    and Python APIs for working with notebooks.
   doc_url: https://nbformat.readthedocs.io
   dev_url: https://github.com/jupyter/nbformat 
 
