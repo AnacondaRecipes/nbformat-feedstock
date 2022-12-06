@@ -1,5 +1,6 @@
 {% set name = "nbformat" %}
-{% set version = "5.5.0" %}
+{% set version = "5.7.0" %}
+{% set sha256 = "1d4760c15c1a04269ef5caf375be8b98dd2f696e5eb9e603ec2bf091f9b0d3f3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nbformat-{{ version }}.tar.gz
-  sha256: 9ebe30e6c3b3e5b47d39ff0a3897a1acf523d2bfafcb4e2d04cdb70f8a66c507
+  sha256: {{ sha256 }}
 
 build:
   number: 0
@@ -19,11 +20,13 @@ build:
 requirements:
   host:
     - python
-    - flit-core >=3.2,<4
     - pip
+    - hatchling
+    - hatch-nodejs-version
     - wheel
   run:
     - python
+    - importlib_metadata >=3.6  # [py<38]
     - jsonschema >=2.6
     - jupyter_core
     - python-fastjsonschema
@@ -51,8 +54,11 @@ about:
   home: https://jupyter.org
   license: BSD-3-Clause
   license_family: BSD
-  summary: The Jupyter Notebook format
   license_file: COPYING.md
+  summary: The Jupyter Notebook format
+  description: | 
+    This package contains the base implementation of the Jupyter Notebook format,
+    and Python APIs for working with notebooks.
   doc_url: https://nbformat.readthedocs.io
   dev_url: https://github.com/jupyter/nbformat 
 
