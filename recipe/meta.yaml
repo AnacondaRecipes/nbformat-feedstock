@@ -1,6 +1,6 @@
 {% set name = "nbformat" %}
-{% set version = "5.7.0" %}
-{% set sha256 = "1d4760c15c1a04269ef5caf375be8b98dd2f696e5eb9e603ec2bf091f9b0d3f3" %}
+{% set version = "5.9.2" %}
+{% set sha256 = "5f98b5ba1997dff175e77e0c17d5c10a96eaed2cbd1de3533d1fc35d5e111192" %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +12,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<37]
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   entry_points:
     - jupyter-trust = nbformat.sign:TrustNotebookApp.launch_instance
 
@@ -23,10 +22,8 @@ requirements:
     - pip
     - hatchling
     - hatch-nodejs-version
-    - wheel
   run:
     - python
-    - importlib_metadata >=3.6  # [py<38]
     - jsonschema >=2.6
     - jupyter_core
     - python-fastjsonschema
@@ -54,7 +51,7 @@ about:
   home: https://jupyter.org
   license: BSD-3-Clause
   license_family: BSD
-  license_file: COPYING.md
+  license_file: LICENSE
   summary: The Jupyter Notebook format
   description: | 
     This package contains the base implementation of the Jupyter Notebook format,
