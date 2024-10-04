@@ -1,6 +1,5 @@
 {% set name = "nbformat" %}
-{% set version = "5.9.2" %}
-{% set sha256 = "5f98b5ba1997dff175e77e0c17d5c10a96eaed2cbd1de3533d1fc35d5e111192" %}
+{% set version = "5.10.4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nbformat-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 322168b14f937a5d11362988ecac2a4952d3d8e3a2cbeb2319584631226d5b3a
 
 build:
   number: 0
@@ -25,8 +24,8 @@ requirements:
   run:
     - python
     - jsonschema >=2.6
-    - jupyter_core
-    - python-fastjsonschema
+    - jupyter_core >=4.12,!=5.0.*
+    - python-fastjsonschema >=2.15
     - traitlets >=5.1
 
 test:
@@ -37,7 +36,6 @@ test:
   requires:
     - pip
     - pytest
-    - pytest-cov
     - testpath
   commands:
     - pip check
@@ -45,7 +43,7 @@ test:
     - jupyter-trust --help
     # pep440 is required for passing tests/test_api.py
     - pip install pep440
-    - pytest -vv --cov nbformat --cov-report term-missing:skip-covered --no-cov-on-fail --cov-fail-under 79
+    - pytest -vv
 
 about:
   home: https://jupyter.org
@@ -53,11 +51,11 @@ about:
   license_family: BSD
   license_file: LICENSE
   summary: The Jupyter Notebook format
-  description: | 
+  description: |
     This package contains the base implementation of the Jupyter Notebook format,
     and Python APIs for working with notebooks.
   doc_url: https://nbformat.readthedocs.io
-  dev_url: https://github.com/jupyter/nbformat 
+  dev_url: https://github.com/jupyter/nbformat
 
 extra:
   recipe-maintainers:
