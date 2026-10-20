@@ -51,7 +51,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: The Jupyter Notebook format
+  summary: The Jupyter Notebook format.
   description: |
     This package contains the base implementation of the Jupyter Notebook format,
     and Python APIs for working with notebooks.
