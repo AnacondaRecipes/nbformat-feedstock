@@ -1,5 +1,5 @@
 {% set name = "nbformat" %}
-{% set version = "5.11.0" %}
+{% set version = "5.11.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7dbaed4a69cae28c2b4d44ab7430a6af4544fb89455023f6f21550be757b60c8
+  sha256: 32d4521c68c6e7d5b29c76defaeed9f42ea733142b9b19f88277ce10390b9c4d
 
 build:
   number: 0
@@ -51,7 +51,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: The Jupyter Notebook format
+  summary: The Jupyter Notebook format.
   description: |
     This package contains the base implementation of the Jupyter Notebook format,
     and Python APIs for working with notebooks.
